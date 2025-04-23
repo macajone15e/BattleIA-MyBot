@@ -70,3 +70,4 @@ C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8
 C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.pdb
 C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.genruntimeconfig.cache
 C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\ref\MyBot.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.sourcelink.json

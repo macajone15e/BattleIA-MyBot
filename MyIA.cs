@@ -1,7 +1,7 @@
 /*
 Software   : BattleIA Bot - MyIA.cs
 Objective  : Autonomous battle bot for the BattleIA 2025 competition
-Version    : V2.1.1
+Version    : V1
 Developers :
     MACAJONE Enzo
 Architecture:
@@ -18,6 +18,8 @@ using System;
 using System.Collections.Generic;
 using BattleIA;
 
+namespace MyBot
+{
     public class MyIA
     {
         Random rng = new Random();
@@ -55,14 +57,6 @@ using BattleIA;
                 shieldLevel = shield;
                 wasHit = true;
             }
-        }
-
-        private byte ComputeOptimalShield(UInt16 energy)
-        {
-            int level = (energy / 500) * 50;
-            if (level < 1) level = 1;
-            else if (level > 1000) level = 1000;
-            return (byte)level;
         }
 
         private (MoveDirection dir, int tx, int ty)? FindTargetInLine()
@@ -150,20 +144,6 @@ using BattleIA;
             return path;
         }
 
-        private int OppositeDirection(int d) => d switch
-        {
-            1 => 3, 2 => 4, 3 => 1, 4 => 2, _ => 0
-        };
-
-        private bool IsAccessible(int d) => d switch
-        {
-            1 => posY - 1 >= 0 && map[posX, posY - 1] > 2,
-            2 => posX - 1 >= 0 && map[posX - 1, posY] > 2,
-            3 => posY + 1 < mapHeight && map[posX, posY + 1] > 2,
-            4 => posX + 1 < mapWidth && map[posX + 1, posY] > 2,
-            _ => false
-        };
-
         public int BestDirection()
         {
             if (posY - 1 >= 0 && map[posX, posY - 1] == 4) { posY--; return lastDirection = 1; }
@@ -192,7 +172,16 @@ using BattleIA;
                 if (options.Count > 0) dir = options[rng.Next(options.Count)];
             }
 
-            if (lastDirection != 0 && dir == OppositeDirection(lastDirection) && IsAccessible(lastDirection))
+            int opposite = lastDirection switch { 1 => 3, 2 => 4, 3 => 1, 4 => 2, _ => 0 };
+            bool accessible = lastDirection switch
+            {
+                1 => posY - 1 >= 0 && map[posX, posY - 1] > 2,
+                2 => posX - 1 >= 0 && map[posX - 1, posY] > 2,
+                3 => posY + 1 < mapHeight && map[posX, posY + 1] > 2,
+                4 => posX + 1 < mapWidth && map[posX + 1, posY] > 2,
+                _ => false
+            };
+            if (lastDirection != 0 && dir == opposite && accessible)
             {
                 dir = lastDirection;
             }
@@ -221,7 +210,10 @@ using BattleIA;
                 return BotHelper.ActionShoot(dir);
             }
 
-            int optimalShield = ComputeOptimalShield(currentEnergy);
+            int optimalShield = (currentEnergy / 500) * 50;
+            if (optimalShield < 1) optimalShield = 1;
+            else if (optimalShield > 1000) optimalShield = 1000;
+
             if (shieldLevel < optimalShield)
             {
                 shieldLevel = (UInt16)optimalShield;
@@ -288,4 +280,4 @@ using BattleIA;
             if (debug) Console.WriteLine($"[SCAN] Updated area around ({posX}, {posY}) with radius {distance}");
         }
     }
-
+}
