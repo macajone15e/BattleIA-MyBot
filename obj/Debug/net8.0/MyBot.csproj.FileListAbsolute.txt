@@ -1,0 +1,72 @@
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\MyBot.exe
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\MyBot.deps.json
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\MyBot.runtimeconfig.json
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.AssemblyReference.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfoInputs.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfo.cs
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.CoreCompileInputs.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.Up2Date
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\refint\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\MyBot.genruntimeconfig.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIA\MyBot\obj\Debug\net8.0\ref\MyBot.dll
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\MyBot.exe
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\MyBot.deps.json
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\MyBot.runtimeconfig.json
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.dll
+C:\Users\gg--d\Documents\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.pdb
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.AssemblyReference.cache
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfoInputs.cache
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfo.cs
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.CoreCompileInputs.cache
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.Up2Date
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\refint\MyBot.dll
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\MyBot.genruntimeconfig.cache
+C:\Users\gg--d\Documents\BattleIA\MyBot\obj\Debug\net8.0\ref\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.exe
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.deps.json
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.runtimeconfig.json
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.AssemblyReference.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfoInputs.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfo.cs
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.CoreCompileInputs.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.Up2Date
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\refint\MyBot.dll
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.genruntimeconfig.cache
+C:\Users\gg--d\OneDrive - JUNIA Grande école d'ingénieurs\Pictures\ADI2\Programmation et IA\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\ref\MyBot.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.exe
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.deps.json
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.runtimeconfig.json
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\bin\Debug\net8.0\BattleIA.Common.pdb
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.AssemblyReference.cache
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfoInputs.cache
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.AssemblyInfo.cs
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.CoreCompileInputs.cache
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.csproj.Up2Date
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\refint\MyBot.dll
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.pdb
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\MyBot.genruntimeconfig.cache
+C:\Users\gg--d\Music\Programmation\BattleIAComplet\BattleIA\MyBot\obj\Debug\net8.0\ref\MyBot.dll

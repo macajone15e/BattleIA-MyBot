@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BotRandom\\BotRandom.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\BattleIA.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\BattleIA.Common.csproj",
+        "projectName": "BattleIA.Common",
+        "projectPath": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\BattleIA.Common.csproj",
+        "packagesPath": "C:\\Users\\gg--d\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gg--d\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BotRandom\\BotRandom.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BotRandom\\BotRandom.csproj",
+        "projectName": "BotRandom",
+        "projectPath": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BotRandom\\BotRandom.csproj",
+        "packagesPath": "C:\\Users\\gg--d\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BotRandom\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gg--d\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\BattleIA.Common.csproj": {
+                "projectPath": "C:\\Users\\gg--d\\OneDrive - JUNIA Grande école d'ingénieurs\\Pictures\\ADI2\\Programmation et IA\\BattleIA\\BattleIA.Common\\BattleIA.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
