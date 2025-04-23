@@ -4,6 +4,7 @@ Objective  : Autonomous battle bot for the BattleIA 2025 competition
 Version    : V1
 Developers :
     MACAJONE Enzo
+    MAZARS Baptiste
 Architecture:
     |_ Program.cs      => Entry point for the bot execution
     |_ MyIA.cs         => Core bot logic (decision making, scanning, movement, combat)
