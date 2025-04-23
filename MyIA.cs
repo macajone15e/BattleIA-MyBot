@@ -1,7 +1,7 @@
 /*
 Software   : BattleIA Bot - MyIA.cs
 Objective  : Autonomous battle bot for the BattleIA 2025 competition
-Version    : V1
+Version    : V3
 Developers :
     MACAJONE Enzo
     MAZARS Baptiste
@@ -60,119 +60,6 @@ namespace MyBot
             }
         }
 
-
-        private List<(int, int)>? FindPathToEnergy()
-        {
-            int d = (scanSize - 1) / 2;
-            int minX = Math.Max(0, posX - d), maxX = Math.Min(mapWidth - 1, posX + d);
-            int minY = Math.Max(0, posY - d), maxY = Math.Min(mapHeight - 1, posY + d);
-            bool[,] visited = new bool[mapWidth, mapHeight];
-            int[,] parentX = new int[mapWidth, mapHeight];
-            int[,] parentY = new int[mapWidth, mapHeight];
-
-            for (int i = 0; i < mapWidth; i++)
-                for (int j = 0; j < mapHeight; j++)
-                    parentX[i, j] = parentY[i, j] = -1;
-
-            var queue = new Queue<(int, int)>();
-            queue.Enqueue((posX, posY));
-            visited[posX, posY] = true;
-
-            bool found = false;
-            int targetX = -1, targetY = -1;
-            int[] dx = { 0, -1, 0, 1 };
-            int[] dy = { -1, 0, 1, 0 };
-
-            while (queue.Count > 0 && !found)
-            {
-                var (cx, cy) = queue.Dequeue();
-                if (map[cx, cy] == 4)
-                {
-                    found = true; targetX = cx; targetY = cy;
-                    break;
-                }
-                for (int i = 0; i < 4; i++)
-                {
-                    int nx = cx + dx[i], ny = cy + dy[i];
-                    if (nx < minX || nx > maxX || ny < minY || ny > maxY) continue;
-                    if (map[nx, ny] <= 2) continue;
-                    if (!visited[nx, ny])
-                    {
-                        visited[nx, ny] = true;
-                        parentX[nx, ny] = cx;
-                        parentY[nx, ny] = cy;
-                        queue.Enqueue((nx, ny));
-                    }
-                }
-            }
-
-            if (!found) return null;
-
-            var path = new List<(int, int)>();
-            int x = targetX, y = targetY;
-            while (x != posX || y != posY)
-            {
-                path.Add((x, y));
-                int px = parentX[x, y], py = parentY[x, y];
-                x = px; y = py;
-            }
-            path.Add((posX, posY));
-            path.Reverse();
-            return path;
-        }
-
-        public int BestDirection()
-        {
-            if (posY - 1 >= 0 && map[posX, posY - 1] == 4) { posY--; return lastDirection = 1; }
-            if (posX + 1 < mapWidth && map[posX + 1, posY] == 4) { posX++; return lastDirection = 4; }
-            if (posX - 1 >= 0 && map[posX - 1, posY] == 4) { posX--; return lastDirection = 2; }
-            if (posY + 1 < mapHeight && map[posX, posY + 1] == 4) { posY++; return lastDirection = 3; }
-
-            var path = FindPathToEnergy();
-            int dir = 0;
-            if (path != null && path.Count > 1)
-            {
-                var (nx, ny) = path[1];
-                int dx_ = nx - posX, dy_ = ny - posY;
-                if (dx_ == 1) dir = 4;
-                else if (dx_ == -1) dir = 2;
-                else if (dy_ == 1) dir = 3;
-                else if (dy_ == -1) dir = 1;
-            }
-            else
-            {
-                var options = new List<int>();
-                if (posY - 1 >= 0 && map[posX, posY - 1] > 2) options.Add(1);
-                if (posX + 1 < mapWidth && map[posX + 1, posY] > 2) options.Add(4);
-                if (posX - 1 >= 0 && map[posX - 1, posY] > 2) options.Add(2);
-                if (posY + 1 < mapHeight && map[posX, posY + 1] > 2) options.Add(3);
-                if (options.Count > 0) dir = options[rng.Next(options.Count)];
-            }
-
-            int opposite = lastDirection switch { 1 => 3, 2 => 4, 3 => 1, 4 => 2, _ => 0 };
-            bool accessible = lastDirection switch
-            {
-                1 => posY - 1 >= 0 && map[posX, posY - 1] > 2,
-                2 => posX - 1 >= 0 && map[posX - 1, posY] > 2,
-                3 => posY + 1 < mapHeight && map[posX, posY + 1] > 2,
-                4 => posX + 1 < mapWidth && map[posX + 1, posY] > 2,
-                _ => false
-            };
-            if (lastDirection != 0 && dir == opposite && accessible)
-            {
-                dir = lastDirection;
-            }
-
-            switch (dir)
-            {
-                case 1: posY--; break;
-                case 2: posX--; break;
-                case 3: posY++; break;
-                case 4: posX++; break;
-            }
-
-            return lastDirection = dir;
-        }
 
         public byte[] GetAction()
         {
@@ -287,5 +174,119 @@ namespace MyBot
             }
             if (debug) Console.WriteLine($"[SCAN] Updated area around ({posX}, {posY}) with radius {distance}");
         }
+        private List<(int, int)>? FindPathToEnergy()
+        {
+            int d = (scanSize - 1) / 2;
+            int minX = Math.Max(0, posX - d), maxX = Math.Min(mapWidth - 1, posX + d);
+            int minY = Math.Max(0, posY - d), maxY = Math.Min(mapHeight - 1, posY + d);
+            bool[,] visited = new bool[mapWidth, mapHeight];
+            int[,] parentX = new int[mapWidth, mapHeight];
+            int[,] parentY = new int[mapWidth, mapHeight];
+
+            for (int i = 0; i < mapWidth; i++)
+                for (int j = 0; j < mapHeight; j++)
+                    parentX[i, j] = parentY[i, j] = -1;
+
+            var queue = new Queue<(int, int)>();
+            queue.Enqueue((posX, posY));
+            visited[posX, posY] = true;
+
+            bool found = false;
+            int targetX = -1, targetY = -1;
+            int[] dx = { 0, -1, 0, 1 };
+            int[] dy = { -1, 0, 1, 0 };
+
+            while (queue.Count > 0 && !found)
+            {
+                var (cx, cy) = queue.Dequeue();
+                if (map[cx, cy] == 4)
+                {
+                    found = true; targetX = cx; targetY = cy;
+                    break;
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    int nx = cx + dx[i], ny = cy + dy[i];
+                    if (nx < minX || nx > maxX || ny < minY || ny > maxY) continue;
+                    if (map[nx, ny] <= 2) continue;
+                    if (!visited[nx, ny])
+                    {
+                        visited[nx, ny] = true;
+                        parentX[nx, ny] = cx;
+                        parentY[nx, ny] = cy;
+                        queue.Enqueue((nx, ny));
+                    }
+                }
+            }
+
+            if (!found) return null;
+
+            var path = new List<(int, int)>();
+            int x = targetX, y = targetY;
+            while (x != posX || y != posY)
+            {
+                path.Add((x, y));
+                int px = parentX[x, y], py = parentY[x, y];
+                x = px; y = py;
+            }
+            path.Add((posX, posY));
+            path.Reverse();
+            return path;
+        }
+
+        public int BestDirection()
+        {
+            if (posY - 1 >= 0 && map[posX, posY - 1] == 4) { posY--; return lastDirection = 1; }
+            if (posX + 1 < mapWidth && map[posX + 1, posY] == 4) { posX++; return lastDirection = 4; }
+            if (posX - 1 >= 0 && map[posX - 1, posY] == 4) { posX--; return lastDirection = 2; }
+            if (posY + 1 < mapHeight && map[posX, posY + 1] == 4) { posY++; return lastDirection = 3; }
+
+            var path = FindPathToEnergy();
+            int dir = 0;
+            if (path != null && path.Count > 1)
+            {
+                var (nx, ny) = path[1];
+                int dx_ = nx - posX, dy_ = ny - posY;
+                if (dx_ == 1) dir = 4;
+                else if (dx_ == -1) dir = 2;
+                else if (dy_ == 1) dir = 3;
+                else if (dy_ == -1) dir = 1;
+            }
+            else
+            {
+                var options = new List<int>();
+                if (posY - 1 >= 0 && map[posX, posY - 1] > 2) options.Add(1);
+                if (posX + 1 < mapWidth && map[posX + 1, posY] > 2) options.Add(4);
+                if (posX - 1 >= 0 && map[posX - 1, posY] > 2) options.Add(2);
+                if (posY + 1 < mapHeight && map[posX, posY + 1] > 2) options.Add(3);
+                if (options.Count > 0) dir = options[rng.Next(options.Count)];
+            }
+
+            int opposite = lastDirection switch { 1 => 3, 2 => 4, 3 => 1, 4 => 2, _ => 0 };
+            bool accessible = lastDirection switch
+            {
+                1 => posY - 1 >= 0 && map[posX, posY - 1] > 2,
+                2 => posX - 1 >= 0 && map[posX - 1, posY] > 2,
+                3 => posY + 1 < mapHeight && map[posX, posY + 1] > 2,
+                4 => posX + 1 < mapWidth && map[posX + 1, posY] > 2,
+                _ => false
+            };
+            if (lastDirection != 0 && dir == opposite && accessible)
+            {
+                dir = lastDirection;
+            }
+
+            switch (dir)
+            {
+                case 1: posY--; break;
+                case 2: posX--; break;
+                case 3: posY++; break;
+                case 4: posX++; break;
+            }
+
+            return lastDirection = dir;
+        }
+
+
     }
 }
