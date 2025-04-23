@@ -59,30 +59,6 @@ namespace MyBot
             }
         }
 
-        private (MoveDirection dir, int tx, int ty)? FindTargetInLine()
-        {
-            for (int y = posY - 1; y >= 0; y--)
-            {
-                if (map[posX, y] == 1) break;
-                if (map[posX, y] == 2) return (MoveDirection.North, posX, y);
-            }
-            for (int y = posY + 1; y < mapHeight; y++)
-            {
-                if (map[posX, y] == 1) break;
-                if (map[posX, y] == 2) return (MoveDirection.South, posX, y);
-            }
-            for (int x = posX - 1; x >= 0; x--)
-            {
-                if (map[x, posY] == 1) break;
-                if (map[x, posY] == 2) return (MoveDirection.West, x, posY);
-            }
-            for (int x = posX + 1; x < mapWidth; x++)
-            {
-                if (map[x, posY] == 1) break;
-                if (map[x, posY] == 2) return (MoveDirection.East, x, posY);
-            }
-            return null;
-        }
 
         private List<(int, int)>? FindPathToEnergy()
         {
@@ -201,14 +177,45 @@ namespace MyBot
         {
             if (debug) Console.WriteLine($"[ACTION] Energy = {currentEnergy}, Shield = {shieldLevel}, Cloak = {cloakLevel}");
 
-            var target = FindTargetInLine();
-            if (target.HasValue)
+            // Scan for visible enemy in line of sight (N, S, E, W)
+            MoveDirection? targetDir = null;
+            int tx = -1, ty = -1;
+
+            // North
+            for (int y = posY - 1; y >= 0; y--)
             {
-                var (dir, tx, ty) = target.Value;
-                map[tx, ty] = 3;
-                if (debug) Console.WriteLine($"[SHOOT] Target spotted at ({tx}, {ty}) direction {dir}");
-                return BotHelper.ActionShoot(dir);
+                if (map[posX, y] == 1) break;
+                if (map[posX, y] == 2) { targetDir = MoveDirection.North; tx = posX; ty = y; break; }
             }
+            // South
+            if (targetDir == null)
+                for (int y = posY + 1; y < mapHeight; y++)
+                {
+                    if (map[posX, y] == 1) break;
+                    if (map[posX, y] == 2) { targetDir = MoveDirection.South; tx = posX; ty = y; break; }
+                }
+            // West
+            if (targetDir == null)
+                for (int x = posX - 1; x >= 0; x--)
+                {
+                    if (map[x, posY] == 1) break;
+                    if (map[x, posY] == 2) { targetDir = MoveDirection.West; tx = x; ty = posY; break; }
+                }
+            // East
+            if (targetDir == null)
+                for (int x = posX + 1; x < mapWidth; x++)
+                {
+                    if (map[x, posY] == 1) break;
+                    if (map[x, posY] == 2) { targetDir = MoveDirection.East; tx = x; ty = posY; break; }
+                }
+
+            if (targetDir != null)
+            {
+                map[tx, ty] = 3;
+                if (debug) Console.WriteLine($"[SHOOT] Target spotted at ({tx}, {ty}) direction {targetDir}");
+                return BotHelper.ActionShoot(targetDir.Value);
+            }
+
 
             int optimalShield = (currentEnergy / 500) * 50;
             if (optimalShield < 1) optimalShield = 1;
