@@ -42,7 +42,7 @@ namespace MyBot
     public class MyIA
     {
         Random rng = new Random();
-        bool debug = true;
+        bool debug = false;
 
         bool isFirstTurn;
         UInt16 shieldLevel;
@@ -58,6 +58,7 @@ namespace MyBot
         int scanSize = 0;
         int lastDirection = 0;
 
+        // Initializes internal bot state at the beginning of the game
         public void DoInit()
         {
             isFirstTurn = true;
@@ -67,6 +68,7 @@ namespace MyBot
             lastDirection = 0;
         }
 
+        // Updates energy, shield, cloak and damage status each turn
         public void StatusReport(UInt16 turn, UInt16 energy, UInt16 shield, UInt16 cloak)
         {
             currentEnergy = energy;
@@ -78,19 +80,20 @@ namespace MyBot
             }
         }
 
-
+        // Main decision logic to determine the bot's next action
         public byte[] GetAction()
         {
             if (debug) Console.WriteLine($"[ACTION] Energy = {currentEnergy}, Shield = {shieldLevel}, Cloak = {cloakLevel}");
 
-            // Scan for visible enemy in line of sight (N, S, E, W)
+            // Try to detect enemy in straight line directions (N, S, W, E)
             MoveDirection? targetDir = null;
             int tx = -1, ty = -1;
 
+            // Enemy detection logic for each direction
             // North
             for (int y = posY - 1; y >= 0; y--)
             {
-                if (map[posX, y] == 1) break;
+                if (map[posX, y] == 1) break; // Wall
                 if (map[posX, y] == 2) { targetDir = MoveDirection.North; tx = posX; ty = y; break; }
             }
             // South
@@ -115,6 +118,7 @@ namespace MyBot
                     if (map[x, posY] == 2) { targetDir = MoveDirection.East; tx = x; ty = posY; break; }
                 }
 
+            // If enemy was spotted, shoot
             if (targetDir != null)
             {
                 map[tx, ty] = 3;
@@ -122,7 +126,7 @@ namespace MyBot
                 return BotHelper.ActionShoot(targetDir.Value);
             }
 
-
+            // Manage shield usage based on energy reserves
             int optimalShield = (currentEnergy / 500) * 50;
             if (optimalShield < 1) optimalShield = 1;
             else if (optimalShield > 1000) optimalShield = 1000;
@@ -135,6 +139,7 @@ namespace MyBot
                 return BotHelper.ActionShield(shieldLevel);
             }
 
+            // Activate cloak if energy is sufficient and not already cloaked at max level
             if (currentEnergy > 1000 && cloakLevel < 4)
             {
                 cloakLevel = 4;
@@ -142,11 +147,13 @@ namespace MyBot
                 return BotHelper.ActionCloak(cloakLevel);
             }
 
+            // Choose best direction and move
             var moveDir = BestDirection();
             if (debug) Console.WriteLine($"[MOVE] Moving in direction {moveDir}, new position = ({posX}, {posY})");
             return BotHelper.ActionMove((MoveDirection)moveDir);
         }
 
+        // Determines scan range (large on first turn, then normal)
         public byte GetScanSurface()
         {
             if (isFirstTurn)
@@ -162,6 +169,7 @@ namespace MyBot
             }
         }
 
+        // Updates bot's map knowledge using scanned area information
         public void AreaInformation(byte distance, byte[] info)
         {
             scanSize = distance;
@@ -178,6 +186,7 @@ namespace MyBot
                         }
                         else
                         {
+                            // Convert scanned value to map state
                             switch ((CaseState)info[idx])
                             {
                                 case CaseState.Wall: map[i, j] = 1; break;
@@ -192,6 +201,7 @@ namespace MyBot
             }
             if (debug) Console.WriteLine($"[SCAN] Updated area around ({posX}, {posY}) with radius {distance}");
         }
+        // Breadth-First Search to find the shortest path to the nearest energy cell
         private List<(int, int)>? FindPathToEnergy()
         {
             int d = (scanSize - 1) / 2;
@@ -201,6 +211,7 @@ namespace MyBot
             int[,] parentX = new int[mapWidth, mapHeight];
             int[,] parentY = new int[mapWidth, mapHeight];
 
+            // Initialize parents to -1 (no parent)
             for (int i = 0; i < mapWidth; i++)
                 for (int j = 0; j < mapHeight; j++)
                     parentX[i, j] = parentY[i, j] = -1;
@@ -211,13 +222,14 @@ namespace MyBot
 
             bool found = false;
             int targetX = -1, targetY = -1;
-            int[] dx = { 0, -1, 0, 1 };
+            int[] dx = { 0, -1, 0, 1 }; // directions: up, left, down, right
             int[] dy = { -1, 0, 1, 0 };
 
+            // Standard BFS to find closest energy
             while (queue.Count > 0 && !found)
             {
                 var (cx, cy) = queue.Dequeue();
-                if (map[cx, cy] == 4)
+                if (map[cx, cy] == 4) // energy found
                 {
                     found = true; targetX = cx; targetY = cy;
                     break;
@@ -226,7 +238,7 @@ namespace MyBot
                 {
                     int nx = cx + dx[i], ny = cy + dy[i];
                     if (nx < minX || nx > maxX || ny < minY || ny > maxY) continue;
-                    if (map[nx, ny] <= 2) continue;
+                    if (map[nx, ny] <= 2) continue; // ignore walls and enemies
                     if (!visited[nx, ny])
                     {
                         visited[nx, ny] = true;
@@ -237,8 +249,10 @@ namespace MyBot
                 }
             }
 
+            // No path to energy found
             if (!found) return null;
 
+            // Reconstruct the path from the target back to the current position
             var path = new List<(int, int)>();
             int x = targetX, y = targetY;
             while (x != posX || y != posY)
@@ -252,13 +266,16 @@ namespace MyBot
             return path;
         }
 
+        // Determines the best move direction based on nearby energy or explored map
         public int BestDirection()
         {
+            // Priority 1: Adjacent energy
             if (posY - 1 >= 0 && map[posX, posY - 1] == 4) { posY--; return lastDirection = 1; }
             if (posX + 1 < mapWidth && map[posX + 1, posY] == 4) { posX++; return lastDirection = 4; }
             if (posX - 1 >= 0 && map[posX - 1, posY] == 4) { posX--; return lastDirection = 2; }
             if (posY + 1 < mapHeight && map[posX, posY + 1] == 4) { posY++; return lastDirection = 3; }
 
+            // Priority 2: Follow the shortest path to nearest energy if known
             var path = FindPathToEnergy();
             int dir = 0;
             if (path != null && path.Count > 1)
@@ -270,7 +287,7 @@ namespace MyBot
                 else if (dy_ == 1) dir = 3;
                 else if (dy_ == -1) dir = 1;
             }
-            else
+            else // Priority 3: Random safe exploration
             {
                 var options = new List<int>();
                 if (posY - 1 >= 0 && map[posX, posY - 1] > 2) options.Add(1);
@@ -280,6 +297,7 @@ namespace MyBot
                 if (options.Count > 0) dir = options[rng.Next(options.Count)];
             }
 
+            // Avoid backtracking if possible (prefer last direction over its opposite)
             int opposite = lastDirection switch { 1 => 3, 2 => 4, 3 => 1, 4 => 2, _ => 0 };
             bool accessible = lastDirection switch
             {
@@ -294,6 +312,7 @@ namespace MyBot
                 dir = lastDirection;
             }
 
+            // Apply chosen movement direction and update position
             switch (dir)
             {
                 case 1: posY--; break;
@@ -304,7 +323,6 @@ namespace MyBot
 
             return lastDirection = dir;
         }
-
-
     }
 }
+
