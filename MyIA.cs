@@ -10,65 +10,20 @@ Architecture:
     |_ MyIA.cs         => Core bot logic (decision making, scanning, movement, combat)
     |_ BattleIA.Common => Provided interfaces and enums by the framework
 
-Objectif :
-    Implémenter un bot autonome capable de survivre indéfiniment en l'absence d'ennemi 
-    et de maximiser la collecte d'énergie. Le bot doit :
-        - Adapter ses déplacements à son niveau d'énergie
-        - Privilégier les sources d’énergie proches
-        - Utiliser intelligemment le scan pour explorer l’environnement
-        - Éviter tout déplacement risqué lorsque l'énergie est basse
-        - Passer en mode survie absolue lorsque l'énergie est critique (<10)
-        - Se préparer au combat si un ennemi est détecté à portée
+Objectives :
+    Implement an autonomous bot capable of surviving indefinitely in the absence of enemies 
+    and maximising energy collection. The bot must :
+        - Adapt its movements to its energy level
+        - Favour nearby energy sources
+        - Use intelligent scanning to explore the environment
+        - Avoid risky movements when energy is low
+        - Switch to absolute survival mode when energy is critical (<10)
+        - Prepare for combat if an enemy is detected within range
 
 Execution :
     $ ./LAUNCH.bat (Windows)
     ou
     $ dotnet run (dans le répertoire MyBot)
-*/
-Tu peux aussi ajouter une ligne avec la date de dernière modification ou une section TODO si vous avez des améliorations prévues. Tu veux que je t’aide à faire un template de header propre et réutilisable ?
-
-
-
-
-
-
-
-Vous avez dit :
-en anglais et je veux bien une section dernière modification et todo
-
-
-ChatGPT a dit :
-Parfait ! Voici un template de header propre, clair et réutilisable pour tous tes fichiers sources du projet, entièrement en anglais, avec les sections que tu voulais :
-
-csharp
-Copier
-Modifier
-/*
-File        : MyIA.cs
-Project     : BattleIA 2025 - Autonomous Bot
-Version     : V3
-Developers  :
-    - Enzo Macajone
-    - Baptiste Mazars
-
-Architecture :
-    |_ Program.cs      => Entry point for the bot execution
-    |_ MyIA.cs         => Core bot logic (decision making, scanning, movement, combat)
-    |_ BattleIA.Common => Provided interfaces and enums by the framework
-
-Purpose :
-    Develop a fully autonomous and energy-efficient bot for the BattleIA 2025 competition.
-    The bot's main goals are to:
-        - Survive indefinitely in the absence of enemies
-        - Maximize energy collection with safe and efficient pathfinding
-        - Adapt movement strategy based on current energy levels
-        - Use scanning wisely to discover surroundings and detect enemies
-        - Enter a survival mode when energy is critically low (<10)
-        - Prepare for combat when an enemy is detected within range
-
-Run Instructions :
-    Windows :   ./LAUNCH.bat
-    Linux/macOS: dotnet run (from the MyBot directory)
 
 Last Modified :
     2025-04-24 by Enzo Macajone
