@@ -12,14 +12,14 @@ class Program
 
     // ****************************************************************************************************
     // Adresse du serveur, à changer si nécessaire
-    private static string serverUrl = "ws://127.0.0.1:4226/bot";
+    private static string serverUrl = "ws://10.224.0.89/bot";
 
 
     // ****************************************************************************************************
     // Identifiant du bot
     // https://www.guidgenerator.com/
     // il faut utiliser le même identifiant pour le cockpit !
-    private static string id = "92718bb2-563f-4859-9b16-7755a32b35c9";
+    private static string id = "d537c8ee-7f21-4b10-961d-066ce747d03f";
     // Nom du bot
     private static string botName = "Macaj'Bot";
     // le code du bot
